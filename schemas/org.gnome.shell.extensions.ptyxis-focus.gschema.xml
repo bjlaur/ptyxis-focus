@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.ptyxis-focus" path="/org/gnome/shell/extensions/ptyxis-focus/">
+    <key name="focus-or-new" type="as">
+      <default><![CDATA[['<Super>Return']]]></default>
+      <summary>Focus Ptyxis or open a new window</summary>
+      <description>Keyboard shortcut that focuses the most recent Ptyxis window on the current workspace, or opens a new Ptyxis window if none exists.</description>
+    </key>
+    <key name="new-window" type="as">
+      <default><![CDATA[['<Super><Shift>Return']]]></default>
+      <summary>Open a new Ptyxis window</summary>
+      <description>Keyboard shortcut that always opens a new Ptyxis window.</description>
+    </key>
+  </schema>
+</schemalist>

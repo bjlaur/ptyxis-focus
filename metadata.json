@@ -1,0 +1,9 @@
+{
+  "uuid": "ptyxis-focus@nullstring.local",
+  "name": "Ptyxis Focus",
+  "description": "Focus the most recent Ptyxis window on the current workspace, or open a new one.",
+  "shell-version": [
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.ptyxis-focus"
+}
