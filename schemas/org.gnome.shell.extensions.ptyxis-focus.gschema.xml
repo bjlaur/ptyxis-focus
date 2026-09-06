@@ -4,7 +4,7 @@
     <key name="focus-or-new" type="as">
       <default><![CDATA[['<Super>Return']]]></default>
       <summary>Focus Ptyxis or open a new window</summary>
-      <description>Keyboard shortcut that focuses the most recent Ptyxis window on the current workspace, or opens a new Ptyxis window if none exists.</description>
+      <description>Keyboard shortcut that focuses the most recent Ptyxis window on the current workspace and monitor, or opens a new Ptyxis window if none exists there.</description>
     </key>
     <key name="new-window" type="as">
       <default><![CDATA[['<Super><Shift>Return']]]></default>

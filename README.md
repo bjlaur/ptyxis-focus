@@ -9,11 +9,12 @@ shortcut.
 `Ptyxis Focus` adds two GNOME Shell shortcuts:
 
 - `Super+Enter`: focus the most recently used Ptyxis window on the current
-  workspace. If there is no Ptyxis window on the current workspace, open one.
+  workspace and monitor. If there is no Ptyxis window there, open one.
 - `Super+Shift+Enter`: always open a new Ptyxis window.
 
 The first shortcut intentionally ignores Ptyxis windows on other workspaces.
-That keeps each workspace self-contained.
+It also ignores Ptyxis windows on other monitors, keeping each workspace and
+display self-contained.
 
 ## Requirements
 

@@ -46,25 +46,37 @@ export default class PtyxisFocusExtension extends Extension {
     _focusOrOpenNew() {
         this._debug('focus-or-new invoked');
 
-        const window = this._findPtyxisWindowOnCurrentWorkspace();
+        const monitor = this._getTargetMonitor();
+        const window = this._findPtyxisWindowOnCurrentWorkspace(monitor);
 
         if (window) {
-            this._debug(`activating ${window.get_title()}`);
+            this._debug(`activating ${window.get_title()} on monitor ${monitor}`);
             Main.activateWindow(window);
             return;
         }
 
-        this._debug('no Ptyxis window on current workspace');
+        this._debug(`no Ptyxis window on current workspace and monitor ${monitor}`);
         this._openNewPtyxis();
     }
 
-    _findPtyxisWindowOnCurrentWorkspace() {
+    _getTargetMonitor() {
+        const focusedWindow = global.display.get_focus_window();
+        const focusedMonitor = focusedWindow?.get_monitor() ?? -1;
+
+        return focusedMonitor >= 0
+            ? focusedMonitor
+            : global.display.get_current_monitor();
+    }
+
+    _findPtyxisWindowOnCurrentWorkspace(monitor) {
         const workspace = global.workspace_manager.get_active_workspace();
         const tracker = Shell.WindowTracker.get_default();
 
         return global.display
             .get_tab_list(Meta.TabList.NORMAL_ALL, workspace)
-            .find(window => this._isPtyxisWindow(window, tracker)) ?? null;
+            .find(window =>
+                window.get_monitor() === monitor &&
+                this._isPtyxisWindow(window, tracker)) ?? null;
     }
 
     _isPtyxisWindow(window, tracker) {
